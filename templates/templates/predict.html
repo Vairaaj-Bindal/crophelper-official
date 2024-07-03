@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Crop Prediction</title>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <h1>Crop Recommendation System</h1>
+            <a href="/">Home</a>
+            <a href="/predict">Predict</a>
+        </div>
+    </nav>
+    <div class="content">
+        <h1>Enter Soil and Environmental Parameters</h1>
+        <form method="POST">
+            <label for="N">Nitrogen level:</label>
+            <input type="text" id="N" name="N"><br><br>
+            
+            <label for="P">Phosphorous level:</label>
+            <input type="text" id="P" name="P"><br><br>
+            
+            <label for="K">Potassium level:</label>
+            <input type="text" id="K" name="K"><br><br>
+            
+            <label for="temperature">Temperature:</label>
+            <input type="text" id="temperature" name="temperature"><br><br>
+            
+            <label for="ph">pH value:</label>
+            <input type="text" id="ph" name="ph"><br><br>
+            
+            <label for="humidity">Humidity level:</label>
+            <input type="text" id="humidity" name="humidity"><br><br>
+            
+            <label for="rainfall">Rainfall:</label>
+            <input type="text" id="rainfall" name="rainfall"><br><br>
+            
+            <input type="submit" value="Predict">
+        </form>
+        
+        {% if prediction %}
+            <h2>Predicted Crop Category: {{ prediction }}</h2>
+        {% endif %}
+        
+        <a href="/">Go back to Home</a>
+    </div>
+</body>
+</html>
